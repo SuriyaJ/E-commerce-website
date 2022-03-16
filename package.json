@@ -15,7 +15,6 @@
     "license": "ISC",
     "dependencies": {
         "body-parser": "^1.19.0",
-        "node": "16.x",
         "cors": "^2.8.5",
         "dot-env": "0.0.1",
         "dotenv": "^9.0.2",
@@ -24,6 +23,7 @@
         "https": "^1.0.0",
         "mongoose": "^5.13.14",
         "mongoose-auto-increment": "^5.0.1",
+        "node": "16.x",
         "nodemon": "^2.0.7",
         "paytmchecksum": "^1.5.0",
         "uuid": "^8.3.2"
