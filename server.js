@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 8000;
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 const URL = `mongodb://${username}:${password}@cluster0.4voqu.mongodb.net/mydb?retryWrites=true&w=majority`;
-createConnection()(process.env.MONGODB_URI || URL);
+Connection(process.env.MONGODB_URI || URL);
 if (process.env.NODE_ENV === "production") {
     app.use(express.static('client/build'));
 }
