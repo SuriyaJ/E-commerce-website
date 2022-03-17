@@ -19,15 +19,7 @@ Connection(process.env.MONGODB_URI || URL);
 const __dirname = path.resolve();
 
 if (process.env.NODE_ENV === "production") {
-
-
-    app.get("*", (req, res) =>
-        app.use(express.static(path.join(__dirname, "/client/build")))
-    );
-} else {
-    app.get("/", (req, res) => {
-        res.send("API is running..");
-    });
+    app.use(express.static(path.join(__dirname, "/client/build")));
 }
 app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
 DefaultData();
