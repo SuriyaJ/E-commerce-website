@@ -7,7 +7,7 @@ import { v4 as uuid } from 'uuid';
 import Connection from './database/db.js';
 import DefaultData from './default.js';
 import Routes from './routes/route.js';
-
+import path from "path";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -19,7 +19,7 @@ Connection(process.env.MONGODB_URI || URL);
 const path = require('path');
 const __dirname = path.resolve();
 if (process.env.NODE_ENV === 'production') {
-
+    app.use(express.static(path.join(__dirname, "/client/build")));
     app.get('/*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     })
