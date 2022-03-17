@@ -7,37 +7,28 @@ import { v4 as uuid } from 'uuid';
 import Connection from './database/db.js';
 import DefaultData from './default.js';
 import Routes from './routes/route.js';
-import path from "path";
+
 dotenv.config();
 const app = express();
+const path = require('path');
 const PORT = process.env.PORT || 8000;
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 const URL = `mongodb+srv://${username}:${password}@cluster0.4voqu.mongodb.net/mydb?retryWrites=true&w=majority`;
 Connection(process.env.MONGODB_URI || URL);
-// --------------------------deployment------------------------------
-const __dirname = path.resolve();
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "/client/build")));
+    app.use(express.static('client/build'));
 
-    app.get("*", (req, res) =>
-        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-    );
-} else {
-    app.get("/", (req, res) => {
-        res.send("API is running..");
-    });
 }
-// --------------------------deployment------------------------------
 app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
 DefaultData();
 
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-app.use('/', Routes);
+app.use('/*', Routes);
 
 
 export let paytmMerchantkey = process.env.PAYTM_MERCHANT_KEY;
