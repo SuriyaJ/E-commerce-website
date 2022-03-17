@@ -18,15 +18,22 @@ const URL = `mongodb+srv://${username}:${password}@cluster0.4voqu.mongodb.net/my
 Connection(process.env.MONGODB_URI || URL);
 const __dirname = path.resolve();
 if (process.env.NODE_ENV === 'production') {
-    app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
-    DefaultData();
-
-    app.use(bodyParser.json({ extended: true }));
-    app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(cors());
-    app.use('/', Routes);
+    app.use(express.static(path.join(__dirname + '/client/build')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname + '/client/build'));
+    });
+} else {
+    app.get("/", (req, res) => {
+        res.send("API is running..");
+    });
 }
+app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
+DefaultData();
 
+app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+app.use('/', Routes);
 
 
 export let paytmMerchantkey = process.env.PAYTM_MERCHANT_KEY;
