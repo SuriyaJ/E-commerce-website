@@ -14,7 +14,8 @@ const PORT = process.env.PORT || 8000;
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
-const URL = `mongodb://${username}:${password}@cluster0.4voqu.mongodb.net/mydb?retryWrites=true&w=majority`;
+const URL = `mongodb://${username}:${password}@cluster0-shard-00-00.4voqu.mongodb.net:27017,cluster0-shard-00-01.4voqu.mongodb.net:27017,cluster0-shard-00-02.4voqu.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-d6kjbz-shard-0&authSource=admin&retryWrites=true&w=majority`;
+
 Connection(process.env.MONGODB_URI || URL);
 if (process.env.NODE_ENV === "production") {
     app.use(express.static('client/build'));
