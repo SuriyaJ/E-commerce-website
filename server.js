@@ -19,9 +19,9 @@ Connection(process.env.MONGODB_URI || URL);
 const __dirname = path.resolve();
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname + '/client/build')));
-    app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname + '/client/build'));
-    });
+    app.get("*", (req, res) =>
+        res.sendFile(path.resolve(__dirnamebuild + '/client/build'))
+    );
 } else {
     app.get("/", (req, res) => {
         res.send("API is running..");
