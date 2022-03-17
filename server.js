@@ -17,10 +17,12 @@ const password = process.env.DB_PASSWORD;
 const URL = `mongodb+srv://${username}:${password}@cluster0.4voqu.mongodb.net/mydb?retryWrites=true&w=majority`;
 Connection(process.env.MONGODB_URI || URL);
 const __dirname = path.resolve();
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname + '/client/build')));
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "/client/build")));
+
     app.get("*", (req, res) =>
-        res.sendFile(path.resolve(__dirnamebuild + '/client/build'))
+        res.sendFile(path.resolve(__dirname, "/client/build"))
     );
 } else {
     app.get("/", (req, res) => {
