@@ -8,21 +8,29 @@ import Connection from './database/db.js';
 import DefaultData from './default.js';
 import Routes from './routes/route.js';
 import path from "path";
-
 dotenv.config();
 const app = express();
-
 const PORT = process.env.PORT || 8000;
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
 const URL = `mongodb+srv://${username}:${password}@cluster0.4voqu.mongodb.net/mydb?retryWrites=true&w=majority`;
 Connection(process.env.MONGODB_URI || URL);
+// --------------------------deployment------------------------------
+const __dirname = path.resolve();
 
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static('client/build'));
+    app.use(express.static(path.join(__dirname, "/frontend/build")));
 
+    app.get("*", (req, res) =>
+        res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+    );
+} else {
+    app.get("/", (req, res) => {
+        res.send("API is running..");
+    });
 }
+// --------------------------deployment------------------------------
 app.listen(PORT, () => console.log(`Server is running successfully on PORT ${PORT}`));
 DefaultData();
 
@@ -41,6 +49,6 @@ paytmParams['MID'] = process.env.PAYTM_MID,
     paytmParams['ORDER_ID'] = uuid(),
     paytmParams['CUST_ID'] = process.env.PAYTM_CUST_ID,
     paytmParams['TXN_AMOUNT'] = '100',
-    paytmParams['CALLBACK_URL'] = 'http://localhost:8000/callback'
+    paytmParams['CALLBACK_URL'] = '/callback'
 paytmParams['EMAIL'] = 'codeforinterview01@gmail.com'
 paytmParams['MOBILE_NO'] = '1234567852'
