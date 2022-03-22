@@ -1,7 +1,7 @@
 import { Box, makeStyles } from '@material-ui/core';
-import NavBar from './Home/NarBar';
-import Banner from './Home/Banner';
-import MidSlide from './Home/MidSlide';
+//import NavBar from './Home/NarBar';
+//import Banner from './Home/Banner';
+//import MidSlide from './Home/MidSlide';
 import MidSection from './Home/MidSection';
 import Slide from './Home/Slide';
 import React,  { useEffect } from 'react';
