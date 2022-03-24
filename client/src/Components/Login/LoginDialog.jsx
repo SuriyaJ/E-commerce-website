@@ -9,7 +9,7 @@ const useStyle = makeStyles({
         maxWidth: 'unset !important'
     },
     image: {
-        backgroundImage: `url(${'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png'})`,
+      //  backgroundImage: `url(${'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png'})`,
         background: '#2874f0',
         backgroundPosition: 'center 85%',
         backgroundRepeat: 'no-repeat',
@@ -150,14 +150,14 @@ const LoginDialog = ({ open, setOpen, setAccount }) => {
                     {
                         account.view === 'login' ? 
                         <Box className={classes.login}>
-                            <TextField onChange={(e) => onValueChange(e)} name='username' label='Enter Email/Mobile number' />
-                            { error && <Typography className={classes.error}>Please enter valid Email ID/Mobile number</Typography> }
+                            <TextField onChange={(e) => onValueChange(e)} name='username' label='Enter User Name' />
+                            { error && <Typography className={classes.error}>Please enter valid user name</Typography> }
                             <TextField onChange={(e) => onValueChange(e)} name='password' label='Enter Password' />
-                            <Typography className={classes.text}>By continuing, you agree to Flipkart's Terms of Use and Privacy Policy.</Typography>
+                            <Typography className={classes.text}>By continuing, you agree to BRAND's Terms of Use and Privacy Policy.</Typography>
                             <Button className={classes.loginbtn} onClick={() => loginUser()} >Login</Button>
                             <Typography className={classes.text} style={{textAlign:'center'}}>OR</Typography>
                             <Button className={classes.requestbtn}>Request OTP</Button>
-                            <Typography className={classes.createText} onClick={() => toggleSignup()}>New to Flipkart? Create an account</Typography>
+                            <Typography className={classes.createText} onClick={() => toggleSignup()}>New to BRAND? Create an account</Typography>
                         </Box> : 
                         <Box className={classes.login}>
                             <TextField onChange={(e) => onInputChange(e)} name='firstname' label='Enter Firstname' />
