@@ -72,14 +72,14 @@ const CustomButtons = () => {
                     <Button className={classes.login} variant="contained" onClick={() => openDialog() }>Login</Button>
                 </Link>
             }
-            <Link>
+          {/*  <Link>
                 <Typography style={{ marginTop: 2 }}>More</Typography>
-            </Link>
+        </Link> */}
             <Link to='/cart' className={classes.container}>
                 <Badge badgeContent={cartItems?.length} color="secondary">
                     <ShoppingCart />
                 </Badge>
-                <Typography style={{ marginLeft: 10 }}>Cart</Typography>
+               <Typography style={{ marginLeft: 10 }}>Cart</Typography>
             </Link>
             <LoginDialog open={open} setOpen={setOpen} setAccount={setAccount} />
         </Box>

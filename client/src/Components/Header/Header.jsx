@@ -58,7 +58,7 @@ const Header = () => {
     const classes = useStyle();
     //const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
     //const subURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
-    const logoURL ='https://i.pinimg.com/736x/92/34/9b/92349b7ff5c99ae56ea06303c8e2e138.jpg';
+    const logoURL ='https://s-media-cache-ak0.pinimg.com/originals/92/34/9b/92349b7ff5c99ae56ea06303c8e2e138.png';
     const [open, setOpen] = useState(false);
 
     const handleClose = () => {
