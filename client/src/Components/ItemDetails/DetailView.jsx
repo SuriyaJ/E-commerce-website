@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { Box, Typography, makeStyles, CircularProgress, Button, Grid } from '@material-ui/core';
 import ProductDetail from './ProductDetail';
 import ActionItem from './ActionItem';
-import { useParams } from 'react-router-dom';
+
 import clsx from 'clsx';
-import { getProductById } from '../../service/api';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getProductDetails } from '../../redux/actions/productActions';
@@ -60,11 +60,7 @@ const data = {
 const DetailView = ({ history, match }) => {
     const classes = useStyles();
     const fassured = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png'
-    // const [ product, setProduct ] = useState(data);
-    // const [ loading, setLoading ] = useState(false);
-    // const { id } = useParams();
-
-    // const [ quantity, setQuantity ] = useState(1);
+   
 
     const productDetails = useSelector(state => state.getProductDetails);
     const { loading, product } = productDetails;
@@ -76,17 +72,6 @@ const DetailView = ({ history, match }) => {
             dispatch(getProductDetails(match.params.id));
     }, [dispatch, product, match, loading]);
 
-    // useEffect(() => {
-    //     getProductValues();
-    // }, []);
-
-    // const getProductValues = async () => {
-    //     setLoading(true);
-    //     const response = await getProductById(id);
-    //     console.log(response.data);
-    //     setProduct(response.data);
-    //     setLoading(false);
-    // }
 
     return (
         <Box className={classes.component}>

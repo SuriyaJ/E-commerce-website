@@ -83,7 +83,7 @@ const MultiSlide = ({ data, timer, title }) => {
                                 <Countdown date={Date.now() + 5.04e+7} renderer={renderer} />
                         </Box>
                 }
-              {/*  <Button variant="contained" color="primary" className={classes.button}>View All</Button> */}
+             
             </Box>
             <Divider />
             <Carousel
@@ -97,7 +97,7 @@ const MultiSlide = ({ data, timer, title }) => {
                 keyBoardControl={true}
                 showDots={false}
                 containerClass="carousel-container"
-                // removeArrowOnDeviceType={["tablet", "mobile"]}
+    
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
             >

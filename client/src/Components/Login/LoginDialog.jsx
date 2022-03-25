@@ -9,8 +9,7 @@ const useStyle = makeStyles({
         maxWidth: 'unset !important'
     },
     image: {
-      //  backgroundImage: `url(${'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png'})`,
-        background: '#2874f0',
+         background: '#2874f0',
         backgroundPosition: 'center 85%',
         backgroundRepeat: 'no-repeat',
         height: '70vh',

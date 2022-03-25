@@ -56,8 +56,6 @@ const ToolBar = withStyles({
 
 const Header = () => {
     const classes = useStyle();
-    //const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';
-    //const subURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
     const logoURL ='https://s-media-cache-ak0.pinimg.com/originals/92/34/9b/92349b7ff5c99ae56ea06303c8e2e138.png';
     const [open, setOpen] = useState(false);
 
@@ -98,8 +96,7 @@ const Header = () => {
                 <Link to='/' className={classes.component}>
                     <img src={logoURL} className={classes.logo} />
                     <Box component="span" className={classes.container}>
-                      {/*  <Typography className = {classes.subHeading}>Explore <Box component="span" style={{color:'#FFE500'}}>Plus</Box></Typography>
-                        <img src={subURL} className={classes.subURL} /> */}
+                     
                     </Box>
                 </Link>
                 <Search />
